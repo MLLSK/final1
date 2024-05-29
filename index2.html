@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yahoo 註冊</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            padding: 0 100px;
+            margin: 0;
+        }
+        .register-container {
+            width: 300px;
+            padding: 20px;
+            background: #fff;
+            text-align: center;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .header {
+            position: absolute;
+            top: 40px;
+            left: 40px;
+        }
+        h2 {
+            color: #7000ff;
+        }
+        form {
+            margin-top: 20px;
+        }
+        input[type="text"], input[type="password"], input[type="email"], input[type="checkbox"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-top: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            color: white;
+            background-color: #4000ff;
+            border: none;
+            border-radius: 4px;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 12px;
+        }
+        .right-links {
+            position: absolute;
+            top: 40px;
+            right: 40px;
+        }
+        .right-links a {
+            margin-left: 20px;
+            color: #0000cc;
+            text-decoration: none;
+        }
+        .text-container {
+            margin-right: 50px;
+        }
+        .logo {
+            width: 100px;
+        }
+        .stay-logged-in {
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+<div class="header">
+    <a href="https://www.yahoo.com">
+        <img src="img/yahoo_frontpage_en-US_s_f_p_bestfit_frontpage_2x.png" alt="Yahoo Logo" class="logo">
+    </a>
+</div>
+<div class="right-links">
+    <a href="https://tw.help.yahoo.com/kb/account">服務說明</a>
+    <a href="https://legal.yahoo.com/tw/zh-hant/yahoo/terms/otos/index.html">服務條款</a>
+    <a href="https://legal.yahoo.com/tw/zh-hant/yahoo/privacy/index.html">隱私權</a>
+</div>
+<div class="text-container">
+    <h1>Yahoo奇摩讓你輕鬆享受自己最重視的事物。</h1>
+    <p>同級最佳的Yahoo奇摩電子信箱、在地及國內外新聞快報、理財、運動、音樂、電影和更多精彩內容。盡享精彩網路世界，開啟生活極致體驗。</p>
+</div>
+<div class="register-container">
+    <h2>Yahoo!</h2>
+    <h2>註冊</h2>
+    <p>創建您的 Yahoo奇摩帳號</p>
+    <form id="registerForm" action="/submit-your-register-form" method="post">
+        <label>
+            <input type="text" name="username" placeholder="用戶名">
+        </label>
+        <label>
+            <input type="email" name="email" placeholder="電子郵件">
+        </label>
+        <label>
+            <input type="password" name="password" placeholder="密碼">
+        </label>
+        <label>
+            <input type="password" name="confirmPassword" placeholder="確認密碼">
+        </label>
+        <div class="stay-logged-in">
+            <label>
+                <input type="checkbox" name="stayLoggedIn">保持登入
+            </label>
+        </div>
+        <button type="button" onclick="validateAndSubmit()">註冊</button>
+        <div class="footer">
+            <p>已有帳戶？</p>
+            <a href="index.html">立即登入</a>
+            <p>註冊即表示您同意政策</p>
+        </div>
+    </form>
+</div>
+<script>
+    function validateAndSubmit() {
+        var username = document.querySelector('[name="username"]').value;
+        var email = document.querySelector('[name="email"]').value;
+        var password = document.querySelector('[name="password"]').value;
+        var confirmPassword = document.querySelector('[name="confirmPassword"]').value;
+
+        if (!username || !email || !password || !confirmPassword) {
+            alert('請填寫所有欄位');
+        } else if (password !== confirmPassword) {
+            alert('密碼和確認密碼不匹配');
+        } else {
+            document.getElementById('registerForm').submit();
+        }
+    }
+</script>
+</body>
+</html>
